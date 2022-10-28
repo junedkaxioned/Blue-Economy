@@ -79,6 +79,12 @@ sub { bottom: -.25em; }
 .cf { *zoom: 1; }
 
 /*for all*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   box-sizing: border-box;
   font-family: sans-serif;
@@ -97,7 +103,8 @@ li {
 /* for wrapper */
 .wrapper {
   max-width: 1360px;
-  width: 86%; 
+  width: 100%;
+  padding: 0 25px ; 
   margin: 0 auto;
 }
 
@@ -105,7 +112,82 @@ li {
   Header styling starts here
 =================================*/
 
+header .wrapper {
+  margin: 22px 0;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
 
+.navbar { 
+  margin: 12px 0 0 50px;
+  display: flex;
+}
+
+.nav-list {
+  padding: 5px 22px;
+  font-size: 13px;
+  display: inline-block;
+  text-transform: uppercase;
+  position: relative;
+  transition: all .6s ease;
+  color: #A8ACAB;
+
+}
+
+.nav-list::after {
+  content: '';
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  background:#A8ACAB;
+  transform: skewX(340deg);
+  transition: .5s ease;
+}
+
+.navbar > *:last-child > *::after { width: 0; }
+
+.nav-list:hover::after {
+  width: 100%;
+  background: #A8ACAB;
+}
+
+.nav-list:hover { color: #fff; }
+
+.search-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  padding: 8px;
+  border: none;
+  border-bottom: 2px solid #000;
+  position: absolute;
+  outline: none;  
+  transition: .5s ease;
+  transform: translateX(100%);
+}
+
+.text-indent { text-indent: -9999px; }
+.icon { display: inline-block; }
+
+.search-icon::after {
+  content: "\f002";
+  padding: 10px 0;
+  font-family: "FontAwesome";
+  font-size: 26px;
+  float: right;
+  color: #A8ACAB;
+  cursor: pointer;
+  text-indent: 0;
+}
+
+.search-icon:hover + .input { transform: translateX(-100%); }
 
 /*=================================
   Header styling ends here
@@ -115,7 +197,23 @@ li {
   main styling starts here
 =================================*/
 
+.blue-economy-banner { padding: 36px; }
+.blue-economy-banner .wrapper { 
+  position: relative; }
 
+.blue-economy {
+  width: 40%;
+  padding: 130px 180px 130px 80px;
+  top: 0;
+  left: 0;
+  background-color: #6FB4E1;
+}
+
+.blue-economy h2 {
+  font-size: 48px;
+  color: #fff;
+  text-align: center;
+}
 
 /*=================================
   main styling ends here
